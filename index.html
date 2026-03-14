@@ -504,13 +504,13 @@ function toggleTheme(){const n=document.body.dataset.theme==="day"?"night":"day"
 const sT=lG("th","day");document.body.dataset.theme=sT;document.getElementById("tBtn").textContent=sT==="day"?"🌙":"☀️";
 
 // Lang
-function toggleLang(){lang=lang==="en"?"es":"en";document.getElementById("lBtn").textContent=lang.toUpperCase();toast(lang==="es"?"Español":"English");}
+function toggleLang(){lang=lang==="en"?"es":"en";document.getElementById("lBtn").textContent=lang.toUpperCase();toast(lang==="es"?"Español":"English");const at=document.querySelector(".nt.active");if(at){const t=at.dataset.tab;tab(t);}}
 
 // Plant
 function setPlant(p){curPlant=p;document.querySelectorAll(".plant-btn").forEach(b=>b.classList.toggle("active",b.textContent.trim()===PLANTS[p].name.split(" ")[0]||(p==="DAL"&&b.textContent.trim()==="Dallas")||(p==="OKC"&&b.textContent.trim()==="OKC")||(p==="ABQ"&&b.textContent.trim()==="ABQ")||(p==="TUC"&&b.textContent.trim()==="Tucson")));toast(`Switched to ${PLANTS[p].name}`);}
 
 // Tab
-function tab(t){document.querySelectorAll(".nt").forEach(n=>n.classList.toggle("active",n.dataset.tab===t));document.querySelectorAll(".tc").forEach(c=>c.classList.toggle("active",c.id==="tc-"+t));if(t==="sym")renderSym();if(t==="map")renderFM();if(t==="inc2")renderIC();if(t==="comp")renderCP();if(t==="train")renderTR();if(t==="usage")renderUS();if(t==="xplant")renderXP();}
+function tab(t){document.querySelectorAll(".nt").forEach(n=>n.classList.toggle("active",n.dataset.tab===t));document.querySelectorAll(".tc").forEach(c=>c.classList.toggle("active",c.id==="tc-"+t));if(t==="dir"){renderS();renderDF();renderLC();apF();}if(t==="sym")renderSym();if(t==="map")renderFM();if(t==="inc2")renderIC();if(t==="comp")renderCP();if(t==="train")renderTR();if(t==="usage")renderUS();if(t==="xplant")renderXP();}
 
 // ═══════════════════════════════════════
 // DIRECTORY
